@@ -30,8 +30,8 @@ var fs = require('fs');
 var randomPoints = fs.readFileSync('./input/random.geojson');
 
 // This loads the file into a string, but you haven't told node how to
-// understand that value: it could geographic data, or a music file, or
-// a word document. To parse the file into an _object_ so that we can
+// understand that value: it could be geographic data, or a music file, or
+// a word document. To parse the fileinto an _object_ so that we can
 // treat it as GeoJSON, we'll need to use `JSON.parse`. Like `fs`, JSON.parse
 // is built into the environment so we don't need to do any extra
 // work to get it. It takes a single parameter of a string, and returns
@@ -60,7 +60,7 @@ var convexHull = turf.convex(randomPoints);
 // We'll also use the JSON methods again, this time to turn our
 // JavaScript variable back into a string of formatted data
 // so that it can be saved.
-fs.writeFileSync('./convex_hull.geojson', JSON.stringify(convexHull));
+fs.writeFileSync('./output/convex_hull.geojson', JSON.stringify(convexHull));
 
 // And there we are: you can look at these files by finding them on your computer
 // and opening them in a system like geojson.io, TileMill, QGIS, or ArcGIS:
